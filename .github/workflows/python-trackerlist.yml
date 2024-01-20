@@ -34,7 +34,7 @@ jobs:
 
       - name: Add current merge time to trackerslist.txt
         run: |
-          sed -i "1s/^/当前合并完成的时间: ${{ formatTime(now(), 'yyyy-MM-dd HH:mm:ss') }}\\n\n/" trackerslist.txt
+          echo "当前合并完成的时间: $(date '+%Y-%m-%d %H:%M:%S')" >> trackerslist.txt
 
       - name: Commit and push changes
         run: |
