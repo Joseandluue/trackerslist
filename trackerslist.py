@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 # 要下载的文件链接列表
 urls = [
@@ -31,9 +32,13 @@ for url in urls:
 # 合并文件并去除空行
 merged_content = merge_files(file_contents)
 
+# 添加当前时间到合并结果的第一行
+current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+merged_content_with_time = f"当前合并完成的时间: {current_time}\n{merged_content}"
+
 # 保存合并结果到文件
 output_file = "trackerslist.txt"
 with open(output_file, "w") as file:
-    file.write(merged_content)
+    file.write(merged_content_with_time)
 
 print(f"文件已合并为 {output_file}")
