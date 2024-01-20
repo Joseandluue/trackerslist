@@ -34,7 +34,7 @@ merged_content = merge_files(file_contents)
 
 # 添加当前时间到合并结果的第一行，同时在第一行下方添加一个空行
 current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-print(f"当前时间:{current_time}"
+print("当前时间:" + {current_time})
 merged_content_with_time = f"更新时间: {current_time}\n\n{merged_content}"
 
 # 保存合并结果到文件
@@ -42,4 +42,4 @@ output_file = "trackerslist.txt"
 with open(output_file, "w") as file:
     file.write(merged_content_with_time)
 
-print(f"文件已合并为 {output_file}")
+print("文件已合并为 " + output_file)
