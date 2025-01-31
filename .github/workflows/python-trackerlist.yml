@@ -32,7 +32,12 @@ jobs:
         run: |
           source venv/bin/activate
           python trackerslist.py
-
+          
+      - name: Remove old virtual environment
+        run: |
+          if [ -d "venv" ]; then
+            rm -rf venv
+          fi
       - name: Commit and push changes
         run: |
           git config --local user.email "actions@github.com"
